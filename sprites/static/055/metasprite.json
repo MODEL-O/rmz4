@@ -1,0 +1,43 @@
+{
+  "label": "gMetaSprite_static_055",
+  "data": [
+    {
+      "sheetIdx": 0,
+      "subsprites": [
+        {
+          "tileNum": 0,
+          "xflip": true,
+          "yflip": false,
+          "size": [
+            16,
+            8
+          ],
+          "x": -8,
+          "y": -4
+        },
+        {
+          "tileNum": 2,
+          "xflip": true,
+          "yflip": false,
+          "size": [
+            8,
+            16
+          ],
+          "x": 7,
+          "y": -8
+        },
+        {
+          "tileNum": 2,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            8,
+            16
+          ],
+          "x": -15,
+          "y": -8
+        }
+      ]
+    }
+  ]
+}

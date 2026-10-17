@@ -1,0 +1,93 @@
+@ FUN_080f872c  entry 0x080f872c  size 124
+.thumb
+.org 0xf872c
+FUN_080f872c:
+	push {r4, lr}	@ 000f872c 10b5
+.org 0xf872e
+	movs r4, #0	@ 000f872e 0024
+.org 0xf8730
+	ldr r2, [r0, #0]	@ 000f8730 0268
+.org 0xf8732
+	ldr r1, [r0, #4]	@ 000f8732 4168
+.org 0xf8734
+	adds r0, r2, #0	@ 000f8734 101c
+.org 0xf8736
+	bl 0x6f50	@ 000f8736 0ef70bfc
+.org 0xf873a
+	lsls r0, r0, #16	@ 000f873a 0004
+.org 0xf873c
+	lsrs r2, r0, #16	@ 000f873c 020c
+.org 0xf873e
+	adds r3, r2, #0	@ 000f873e 131c
+.org 0xf8740
+	ldr r0, [pc, #36]	@ 000f8740 0948
+.org 0xf8742
+	movs r1, #232	@ 000f8742 e821
+.org 0xf8744
+	lsls r1, r1, #1	@ 000f8744 4900
+.org 0xf8746
+	adds r0, r0, r1	@ 000f8746 4018
+.org 0xf8748
+	ldrh r0, [r0, #0]	@ 000f8748 0088
+.org 0xf874a
+	movs r1, #127	@ 000f874a 7f21
+.org 0xf874c
+	ands r1, r0	@ 000f874c 0140
+.org 0xf874e
+	cmp r1, #10	@ 000f874e 0a29
+.org 0xf8750
+	beq.n 0xf8754	@ 000f8750 00d0
+.org 0xf8752
+	b.n 0xf8900	@ 000f8752 d5e0
+.org 0xf8754
+	ldr r1, [pc, #20]	@ 000f8754 0549
+.org 0xf8756
+	adds r0, r2, r1	@ 000f8756 5018
+.org 0xf8758
+	cmp r0, #98	@ 000f8758 6228
+.org 0xf875a
+	bls.n 0xf875e	@ 000f875a 00d9
+.org 0xf875c
+	b.n 0xf8f16	@ 000f875c dbe3
+.org 0xf875e
+	lsls r0, r0, #2	@ 000f875e 8000
+.org 0xf8760
+	ldr r1, [pc, #12]	@ 000f8760 0349
+.org 0xf8762
+	adds r0, r0, r1	@ 000f8762 4018
+.org 0xf8764
+	ldr r0, [r0, #0]	@ 000f8764 0068
+.org 0xf8766
+	mov pc, r0	@ 000f8766 8746
+.org 0xf8768
+	.byte 0xb0,0x0a,0x00,0x02	@ 000f8768 data
+.org 0xf876c
+	.byte 0x7a,0xfe,0xff,0xff	@ 000f876c data
+.org 0xf8770
+	.byte 0x74,0x87,0x0f,0x08	@ 000f8770 data
+.org 0xf8774
+	.byte 0xe8,0x8e,0x0f,0x08	@ 000f8774 data
+.org 0xf8778
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f8778 data
+.org 0xf877c
+	.byte 0xec,0x8e,0x0f,0x08	@ 000f877c data
+.org 0xf8780
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f8780 data
+.org 0xf8784
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f8784 data
+.org 0xf8788
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f8788 data
+.org 0xf878c
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f878c data
+.org 0xf8790
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f8790 data
+.org 0xf8794
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f8794 data
+.org 0xf8798
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f8798 data
+.org 0xf879c
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f879c data
+.org 0xf87a0
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f87a0 data
+.org 0xf87a4
+	.byte 0x16,0x8f,0x0f,0x08	@ 000f87a4 data

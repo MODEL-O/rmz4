@@ -1,0 +1,52 @@
+{
+  "name": "stage10_0",
+  "id": 10,
+  "struct": "0x08836a24",
+  "landscapeEntries": [
+    20
+  ],
+  "tilesetOffsetIndex": [
+    10
+  ],
+  "layers": [
+    {
+      "bgIdx": 1,
+      "prio": 2,
+      "screenBase": 512,
+      "scrollPower": [
+        256,
+        256
+      ],
+      "scroll": [
+        0,
+        0
+      ]
+    },
+    {
+      "bgIdx": 2,
+      "prio": 1,
+      "screenBase": 1024,
+      "scrollPower": [
+        256,
+        256
+      ],
+      "scroll": [
+        0,
+        0
+      ]
+    },
+    {
+      "bgIdx": 3,
+      "prio": 3,
+      "screenBase": 1536,
+      "scrollPower": [
+        256,
+        256
+      ],
+      "scroll": [
+        0,
+        0
+      ]
+    }
+  ]
+}

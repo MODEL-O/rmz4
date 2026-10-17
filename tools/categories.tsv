@@ -1,0 +1,16 @@
+# entry<TAB>category<TAB>name(optional)
+# 数据驱动的函数分类真源。每行: ROM入口地址, 类别(=funcs/下子目录), 可选语义名。
+# categorize.py 读此表覆盖 funcs_index 的 shard(类别)与 name(改名), 然后重跑 split_asm 字节校验。
+# 未列出的函数保留其原 seg_ 分桶, 待 rmz3-dev 匹配逐步迁出。
+#
+# === lib_runtime: 编译器运行时/库 (agbcc 字节匹配确认) ===
+0x08128F7C	lib_runtime	_call_via_r0
+0x08128F80	lib_runtime	_call_via_r1
+0x08128F84	lib_runtime	_call_via_r2
+0x08128F88	lib_runtime	_call_via_r3
+0x08128FB8	lib_runtime	__divsi3
+0x08129050	lib_runtime	__modsi3
+0x08129120	lib_runtime	__udivsi3
+0x08129198	lib_runtime	__umodsi3
+0x08129258	lib_runtime	memcpy
+0x081292B8	lib_runtime	memset

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!-- rmz4 metasprite 动画查看器 (只读: 仅 fetch json/png, 不修改任何资源文件)
+     从仓库根起 HTTP 服务后打开, 例如:
+        cd E:\GameProjects\rmz3\rmz4-dev
+        python -m http.server 8000
+     浏览器访问 http://localhost:8000/tools/anim_viewer.html
+     渲染: 按 metasprite.json 每帧的 subsprite(tileNum/size/x/y/flip) 把 sheet 的 8x8 瓦片
+          按 GBA OAM 1D-mapping 拼成完整角色; 按 sequence.json + animation.c 语义播放。 -->
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>rmz4 metasprite 动画查看器</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; font:13px/1.5 system-ui,sans-serif; background:#1e1e22; color:#ddd; }
+  header { padding:8px 12px; background:#27272d; border-bottom:1px solid #000; display:flex; flex-wrap:wrap; gap:14px 18px; align-items:center; }
+  .grp { display:flex; gap:6px; align-items:center; }
+  label { color:#9aa; }
+  select,input[type=number]{ background:#15151a; color:#ddd; border:1px solid #444; border-radius:4px; padding:3px 6px; }
+  input[type=number]{ width:64px; }
+  button { background:#34343c; color:#ddd; border:1px solid #555; border-radius:4px; padding:4px 9px; cursor:pointer; }
+  button:hover{ background:#42424c; }
+  button.on{ background:#2d6cdf; border-color:#2d6cdf; color:#fff; }
+  main { display:flex; }
+  #stageWrap { flex:1; display:flex; align-items:center; justify-content:center; height:calc(100vh - 52px); overflow:hidden; }
+  canvas { image-rendering:pixelated; }
+  aside { width:300px; border-left:1px solid #000; background:#222227; height:calc(100vh - 52px); overflow:auto; padding:10px 12px; box-sizing:border-box; }
+  aside h3{ margin:10px 0 4px; font-size:12px; color:#8af; text-transform:uppercase; letter-spacing:.04em; }
+  table{ border-collapse:collapse; width:100%; }
+  td,th{ border:1px solid #383840; padding:2px 5px; text-align:right; font-variant-numeric:tabular-nums; }
+  th{ color:#9aa; font-weight:600; }
+  tr.cur td{ background:#2d6cdf33; }
+  .mono{ font-family:ui-monospace,Consolas,monospace; }
+  .muted{ color:#888; }
+  input[type=range]{ vertical-align:middle; }
+  #err{ color:#f88; }
+</style>
+</head>
+<body>
+<header>
+  <div class="grp">
+    <label>类型</label>
+    <select id="type"><option value="static">static</option><option value="dynamic">dynamic</option></select>
+  </div>
+  <div class="grp">
+    <label>motion</label>
+    <button id="prev">◀</button>
+    <input type="number" id="id" min="0" value="0">
+    <button id="next">▶</button>
+    <input type="range" id="idRange" min="0" value="0" style="width:160px">
+    <span id="idMax" class="muted"></span>
+  </div>
+  <div class="grp">
+    <label>动画(script)</label>
+    <select id="script"></select>
+  </div>
+  <div class="grp">
+    <button id="play" class="on">⏸ 暂停</button>
+    <button id="stepb">⏮</button>
+    <button id="stepf">⏭</button>
+  </div>
+  <div class="grp">
+    <label>速度</label>
+    <input type="range" id="speed" min="0.1" max="3" step="0.1" value="1" style="width:90px">
+    <span id="speedV" class="muted">1.0×</span>
+  </div>
+  <div class="grp">
+    <label>缩放</label>
+    <input type="range" id="zoom" min="1" max="12" step="1" value="4" style="width:90px">
+    <span id="zoomV" class="muted">4×</span>
+  </div>
+  <div class="grp">
+    <button id="grid">网格</button>
+    <button id="outline">框</button>
+    <button id="origin" class="on">原点</button>
+    <label>底色</label><input type="color" id="bg" value="#3a3f4b">
+  </div>
+  <span id="err"></span>
+</header>
+<main>
+  <div id="stageWrap"><canvas id="stage" width="512" height="512"></canvas></div>
+  <aside>
+    <h3>当前</h3>
+    <div id="info" class="mono muted"></div>
+    <h3>script 列表 (cmd)</h3>
+    <table id="cmds"><thead><tr><th>#</th><th>frameIdx</th><th>duration</th><th>说明</th></tr></thead><tbody></tbody></table>
+    <h3>帧 subsprites</h3>
+    <table id="subs"><thead><tr><th>tile</th><th>w×h</th><th>x</th><th>y</th><th>flip</th></tr></thead><tbody></tbody></table>
+  </aside>
+</main>
+<script>
+const ROOT = location.pathname.replace(/\/tools\/[^/]*$/, '');
+const SPR  = ROOT + '/src/data/graphic_table/sprites';
+const $ = id => document.getElementById(id);
+const errEl = $('err');
+function setErr(m){ errEl.textContent = m || ''; }
+
+const state = {
+  type:'static', id:0, scriptIdx:0,
+  meta:null, seq:null, sheets:new Map(),   // sheetIdx -> {img,cols}
+  counts:{static:248, dynamic:209},
+  playing:true, speed:1, zoom:4,
+  showGrid:false, showOutline:false, showOrigin:true, bg:'#3a3f4b',
+  cmdIdx:0, ticksLeft:0,    // 播放状态
+};
+
+async function fetchJSON(u){ const r = await fetch(u); if(!r.ok) throw new Error(r.status+' '+u); return r.json(); }
+function loadImg(u){ return new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=()=>rej(new Error('img '+u)); i.src=u; }); }
+
+async function loadManifest(){
+  try{
+    const m = await fetchJSON(ROOT + '/src/data/animation/manifest.json');
+    for(const t of (m.tables||[])) if(t.metasprite) state.counts[t.key]=t.metasprite.count;
+  }catch(e){ /* 用默认计数 */ }
+}
+
+function sheetURL(type, id, sheetIdx){
+  const d = `${SPR}/${type}/${String(id).padStart(3,'0')}`;
+  return type==='static' ? `${d}/sheet.png` : `${d}/${sheetIdx}.png`;
+}
+
+async function getSheet(sheetIdx){
+  const key = state.type==='static' ? 'S' : sheetIdx;   // static 单 sheet
+  if(state.sheets.has(key)) return state.sheets.get(key);
+  const url = sheetURL(state.type, state.id, sheetIdx);
+  try{
+    const img = await loadImg(url);
+    const o = {img, cols: Math.max(1, img.width>>3)};
+    state.sheets.set(key, o); return o;
+  }catch(e){ state.sheets.set(key, null); return null; }
+}
+
+async function loadMotion(){
+  setErr('');
+  state.sheets.clear();
+  const d = `${SPR}/${state.type}/${String(state.id).padStart(3,'0')}`;
+  try{
+    state.meta = await fetchJSON(`${d}/metasprite.json`);
+    state.seq  = await fetchJSON(`${d}/sequence.json`);
+  }catch(e){ setErr('加载失败: '+e.message); state.meta=state.seq=null; return; }
+  // 预载所有用到的 sheet
+  const need = new Set();
+  for(const f of state.meta.data) need.add(state.type==='static' ? 0 : f.sheetIdx);
+  await Promise.all([...need].map(getSheet));
+  // script 下拉
+  const sel = $('script'); sel.innerHTML='';
+  state.seq.data.forEach((s,i)=>{ const o=document.createElement('option'); o.value=i; o.textContent=`#${i} (${s.length} cmd)`; sel.appendChild(o); });
+  if(state.scriptIdx >= state.seq.data.length) state.scriptIdx = 0;
+  sel.value = state.scriptIdx;
+  resetPlayback();
+  renderCmdTable();
+}
+
+function curScript(){ return state.seq?.data?.[state.scriptIdx] || []; }
+function resetPlayback(){
+  state.cmdIdx = 0;
+  const s = curScript();
+  state.ticksLeft = s.length ? Math.max(1,(s[0].duration & 0xff)) : 1;
+}
+
+// 推进一“游戏帧”; 返回是否仍在播放
+function advance(){
+  const s = curScript(); if(!s.length) return false;
+  state.ticksLeft--;
+  if(state.ticksLeft > 0) return true;
+  let next = state.cmdIdx + 1;
+  if(next >= s.length){ // 落到末尾(无显式控制) -> 停
+    state.cmdIdx = s.length-1; state.ticksLeft = 1; return false;
+  }
+  const nc = s[next];
+  if(nc.duration === 255){ state.cmdIdx = next>0?next-1:0; state.ticksLeft = 1; return false; } // 终端: 保持前一帧
+  if(nc.duration === 254){ state.cmdIdx = nc.frameIdx & 0xff; state.ticksLeft = Math.max(1, s[state.cmdIdx].duration & 0xff); return true; } // goto cmdIdx=param
+  state.cmdIdx = next; state.ticksLeft = Math.max(1, nc.duration & 0xff);
+  return true;
+}
+
+function curFrameIdx(){
+  const s = curScript(); if(!s.length) return 0;
+  return (s[state.cmdIdx]?.frameIdx) & 0xff;
+}
+
+// ---------- 渲染 ----------
+const cv = $('stage'), ctx = cv.getContext('2d');
+function draw(){
+  const z = state.zoom;
+  ctx.imageSmoothingEnabled = false;
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.fillStyle = state.bg; ctx.fillRect(0,0,cv.width,cv.height);
+  const ox = cv.width/2, oy = cv.height/2;   // 原点(0,0) 居中
+
+  if(state.showGrid){
+    ctx.strokeStyle = '#ffffff10'; ctx.lineWidth=1; ctx.beginPath();
+    for(let gx=ox%(8*z); gx<cv.width; gx+=8*z){ ctx.moveTo(gx,0); ctx.lineTo(gx,cv.height); }
+    for(let gy=oy%(8*z); gy<cv.height; gy+=8*z){ ctx.moveTo(0,gy); ctx.lineTo(cv.width,gy); }
+    ctx.stroke();
+  }
+
+  const meta = state.meta; if(!meta){ return; }
+  const fi = curFrameIdx();
+  const frame = meta.data[fi]; if(!frame){ return; }
+  const sh = getSheetSync(state.type==='static'?0:frame.sheetIdx);
+
+  // OAM 顺序: 后面的覆盖前面? GBA 是按 OAM index 优先级, 这里按数组顺序后画(后者在上)
+  for(const sub of frame.subsprites){
+    const [w,h] = sub.size; const tA = Math.max(1,w>>3), tD = Math.max(1,h>>3);
+    for(let j=0;j<tD;j++) for(let i=0;i<tA;i++){
+      const tileIndex = (sub.tileNum + j*tA + i) & 0x3ff;
+      const sc = sub.xflip ? (tA-1-i) : i;
+      const sr = sub.yflip ? (tD-1-j) : j;
+      const dx = ox + (sub.x + sc*8)*z;
+      const dy = oy + (sub.y + sr*8)*z;
+      if(sh && sh.img){
+        const sx = (tileIndex % sh.cols)*8, sy = ((tileIndex / sh.cols)|0)*8;
+        ctx.save();
+        ctx.translate(dx + 4*z, dy + 4*z);
+        ctx.scale(sub.xflip?-1:1, sub.yflip?-1:1);
+        ctx.drawImage(sh.img, sx, sy, 8, 8, -4*z, -4*z, 8*z, 8*z);
+        ctx.restore();
+      } else {
+        ctx.fillStyle = '#f0f3'; ctx.fillRect(dx,dy,8*z,8*z);
+      }
+    }
+    if(state.showOutline){
+      ctx.strokeStyle = '#3df'; ctx.lineWidth=1;
+      ctx.strokeRect(ox+sub.x*z+.5, oy+sub.y*z+.5, w*z, h*z);
+    }
+  }
+  if(state.showOrigin){
+    ctx.strokeStyle='#f44'; ctx.lineWidth=1; ctx.beginPath();
+    ctx.moveTo(ox-6,oy+.5); ctx.lineTo(ox+6,oy+.5); ctx.moveTo(ox+.5,oy-6); ctx.lineTo(ox+.5,oy+6); ctx.stroke();
+  }
+  updateInfo(fi, frame);
+}
+function getSheetSync(idx){ const key = state.type==='static'?'S':idx; return state.sheets.get(key); }
+
+function updateInfo(fi, frame){
+  const s = curScript(); const c = s[state.cmdIdx]||{};
+  $('info').innerHTML =
+    `motion ${state.type}/${String(state.id).padStart(3,'0')}<br>`+
+    `script #${state.scriptIdx} · cmd ${state.cmdIdx}/${s.length-1}<br>`+
+    `frameIdx ${fi} · dur ${c.duration} · ticksLeft ${state.ticksLeft}<br>`+
+    `sheet ${state.type==='static'?'sheet.png':frame.sheetIdx+'.png'} · subs ${frame.subsprites.length}`;
+  // cmd 表高亮
+  document.querySelectorAll('#cmds tr.cur').forEach(t=>t.classList.remove('cur'));
+  const row = document.querySelector(`#cmds tbody tr[data-i="${state.cmdIdx}"]`); if(row) row.classList.add('cur');
+  // subs 表
+  const tb = $('subs').querySelector('tbody'); tb.innerHTML='';
+  for(const su of frame.subsprites){
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${su.tileNum}</td><td>${su.size[0]}×${su.size[1]}</td><td>${su.x}</td><td>${su.y}</td><td>${su.xflip?'H':''}${su.yflip?'V':''}</td>`;
+    tb.appendChild(tr);
+  }
+}
+function renderCmdTable(){
+  const tb = $('cmds').querySelector('tbody'); tb.innerHTML='';
+  curScript().forEach((c,i)=>{
+    const note = c.duration===255?'终端':c.duration===254?('goto→'+c.frameIdx):'';
+    const tr=document.createElement('tr'); tr.dataset.i=i;
+    tr.innerHTML=`<td>${i}</td><td>${c.frameIdx}</td><td>${c.duration}</td><td style="text-align:left">${note}</td>`;
+    tb.appendChild(tr);
+  });
+}
+
+// ---------- 播放循环 (60fps 基准) ----------
+let acc=0, last=performance.now();
+function loop(now){
+  const dt = now - last; last = now;
+  if(state.playing && state.meta){
+    acc += dt * state.speed;
+    const step = 1000/60;
+    while(acc >= step){ acc -= step; if(!advance()){ /* 停在末帧, 继续显示 */ break; } }
+  }
+  draw();
+  requestAnimationFrame(loop);
+}
+
+// ---------- 控件 ----------
+function clampId(){ const max=state.counts[state.type]-1; state.id=Math.max(0,Math.min(max,state.id|0)); $('id').value=state.id; $('idRange').value=state.id; }
+function setType(t){ state.type=t; $('idMax').textContent='/ '+(state.counts[t]-1); $('idRange').max=state.counts[t]-1; clampId(); loadMotion(); }
+$('type').onchange = e=>setType(e.target.value);
+$('id').oninput = e=>{ state.id=+e.target.value||0; clampId(); loadMotion(); };
+$('idRange').oninput = e=>{ state.id=+e.target.value; clampId(); loadMotion(); };
+$('prev').onclick = ()=>{ state.id--; clampId(); loadMotion(); };
+$('next').onclick = ()=>{ state.id++; clampId(); loadMotion(); };
+$('script').onchange = e=>{ state.scriptIdx=+e.target.value; resetPlayback(); renderCmdTable(); };
+$('play').onclick = ()=>{ state.playing=!state.playing; $('play').textContent=state.playing?'⏸ 暂停':'▶ 播放'; $('play').classList.toggle('on',state.playing); };
+$('stepf').onclick = ()=>{ state.playing=false; $('play').textContent='▶ 播放'; $('play').classList.remove('on'); state.ticksLeft=1; advance(); };
+$('stepb').onclick = ()=>{ const s=curScript(); state.cmdIdx=Math.max(0,state.cmdIdx-1); state.ticksLeft=Math.max(1,(s[state.cmdIdx]?.duration&0xff)||1); state.playing=false; $('play').textContent='▶ 播放'; $('play').classList.remove('on'); };
+$('speed').oninput = e=>{ state.speed=+e.target.value; $('speedV').textContent=state.speed.toFixed(1)+'×'; };
+$('zoom').oninput = e=>{ state.zoom=+e.target.value; $('zoomV').textContent=state.zoom+'×'; };
+$('grid').onclick = e=>{ state.showGrid=!state.showGrid; e.target.classList.toggle('on',state.showGrid); };
+$('outline').onclick = e=>{ state.showOutline=!state.showOutline; e.target.classList.toggle('on',state.showOutline); };
+$('origin').onclick = e=>{ state.showOrigin=!state.showOrigin; e.target.classList.toggle('on',state.showOrigin); };
+$('bg').oninput = e=>{ state.bg=e.target.value; };
+addEventListener('keydown', e=>{
+  if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT') return;
+  if(e.key==='ArrowLeft'){ state.id--; clampId(); loadMotion(); }
+  else if(e.key==='ArrowRight'){ state.id++; clampId(); loadMotion(); }
+  else if(e.key===' '){ e.preventDefault(); $('play').click(); }
+  else if(e.key==='.'){ $('stepf').click(); }
+  else if(e.key===','){ $('stepb').click(); }
+});
+
+function fitCanvas(){ const W=$('stageWrap').clientWidth, H=$('stageWrap').clientHeight; cv.width=Math.max(256,W-16); cv.height=Math.max(256,H-16); }
+addEventListener('resize', fitCanvas);
+
+(async function init(){
+  await loadManifest();
+  fitCanvas();
+  $('idMax').textContent='/ '+(state.counts.static-1);
+  $('idRange').max=state.counts.static-1;
+  await loadMotion();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+@ FUN_080f3e80  entry 0x080f3e80  size 74
+.thumb
+.org 0xf3e80
+FUN_080f3e80:
+	push {r4, lr}	@ 000f3e80 10b5
+.org 0xf3e82
+	adds r4, r0, #0	@ 000f3e82 041c
+.org 0xf3e84
+	ldrb r1, [r4, #16]	@ 000f3e84 217c
+.org 0xf3e86
+	lsls r0, r1, #1	@ 000f3e86 4800
+.org 0xf3e88
+	adds r0, r0, r1	@ 000f3e88 4018
+.org 0xf3e8a
+	strb r0, [r4, #16]	@ 000f3e8a 2074
+.org 0xf3e8c
+	ldrb r0, [r4, #17]	@ 000f3e8c 607c
+.org 0xf3e8e
+	cmp r0, #7	@ 000f3e8e 0728
+.org 0xf3e90
+	bhi.n 0xf3ecc	@ 000f3e90 1cd8
+.org 0xf3e92
+	lsls r0, r0, #2	@ 000f3e92 8000
+.org 0xf3e94
+	ldr r1, [pc, #4]	@ 000f3e94 0149
+.org 0xf3e96
+	adds r0, r0, r1	@ 000f3e96 4018
+.org 0xf3e98
+	ldr r0, [r0, #0]	@ 000f3e98 0068
+.org 0xf3e9a
+	mov pc, r0	@ 000f3e9a 8746
+.org 0xf3e9c
+	.byte 0xa0,0x3e,0x0f,0x08	@ 000f3e9c data
+.org 0xf3ea0
+	.byte 0xcc,0x3e,0x0f,0x08	@ 000f3ea0 data
+.org 0xf3ea4
+	.byte 0xc0,0x3e,0x0f,0x08	@ 000f3ea4 data
+.org 0xf3ea8
+	.byte 0xc6,0x3e,0x0f,0x08	@ 000f3ea8 data
+.org 0xf3eac
+	.byte 0xc6,0x3e,0x0f,0x08	@ 000f3eac data
+.org 0xf3eb0
+	.byte 0xcc,0x3e,0x0f,0x08	@ 000f3eb0 data
+.org 0xf3eb4
+	.byte 0xc6,0x3e,0x0f,0x08	@ 000f3eb4 data
+.org 0xf3eb8
+	.byte 0xc6,0x3e,0x0f,0x08	@ 000f3eb8 data
+.org 0xf3ebc
+	.byte 0xc0,0x3e,0x0f,0x08	@ 000f3ebc data
+.org 0xf3ec0
+	.byte 0x20	@ 000f3ec0 data
+.org 0xf3ec1
+	.byte 0x7c	@ 000f3ec1 data
+.org 0xf3ec2
+	.byte 0x01	@ 000f3ec2 data
+.org 0xf3ec3
+	.byte 0x30	@ 000f3ec3 data
+.org 0xf3ec4
+	.byte 0x01	@ 000f3ec4 data
+.org 0xf3ec5
+	.byte 0xe0	@ 000f3ec5 data
+.org 0xf3ec6
+	.byte 0x20	@ 000f3ec6 data
+.org 0xf3ec7
+	.byte 0x7c	@ 000f3ec7 data
+.org 0xf3ec8
+	.byte 0x02	@ 000f3ec8 data
+.org 0xf3ec9
+	.byte 0x30	@ 000f3ec9 data

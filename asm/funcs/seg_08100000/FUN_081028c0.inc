@@ -1,0 +1,205 @@
+@ FUN_081028c0  entry 0x081028c0  size 208
+.thumb
+.org 0x1028c0
+FUN_081028c0:
+	push {r4, lr}	@ 001028c0 10b5
+.org 0x1028c2
+	movs r4, #1	@ 001028c2 0124
+.org 0x1028c4
+	movs r0, #93	@ 001028c4 5d20
+.org 0x1028c6
+	bl 0x6984	@ 001028c6 04f75df8
+.org 0x1028ca
+	ldr r2, [pc, #44]	@ 001028ca 0b4a
+.org 0x1028cc
+	ldrb r1, [r2, #7]	@ 001028cc d179
+.org 0x1028ce
+	adds r0, r4, #0	@ 001028ce 201c
+.org 0x1028d0
+	ands r0, r1	@ 001028d0 0840
+.org 0x1028d2
+	cmp r0, #0	@ 001028d2 0028
+.org 0x1028d4
+	beq.n 0x1028fc	@ 001028d4 12d0
+.org 0x1028d6
+	movs r4, #17	@ 001028d6 1124
+.org 0x1028d8
+	movs r0, #2	@ 001028d8 0220
+.org 0x1028da
+	ands r0, r1	@ 001028da 0840
+.org 0x1028dc
+	cmp r0, #0	@ 001028dc 0028
+.org 0x1028de
+	beq.n 0x10294e	@ 001028de 36d0
+.org 0x1028e0
+	movs r4, #19	@ 001028e0 1324
+.org 0x1028e2
+	movs r0, #4	@ 001028e2 0420
+.org 0x1028e4
+	ands r0, r1	@ 001028e4 0840
+.org 0x1028e6
+	cmp r0, #0	@ 001028e6 0028
+.org 0x1028e8
+	beq.n 0x10294e	@ 001028e8 31d0
+.org 0x1028ea
+	movs r4, #21	@ 001028ea 1524
+.org 0x1028ec
+	movs r0, #8	@ 001028ec 0820
+.org 0x1028ee
+	ands r0, r1	@ 001028ee 0840
+.org 0x1028f0
+	cmp r0, #0	@ 001028f0 0028
+.org 0x1028f2
+	beq.n 0x10294e	@ 001028f2 2cd0
+.org 0x1028f4
+	movs r4, #23	@ 001028f4 1724
+.org 0x1028f6
+	b.n 0x10294e	@ 001028f6 2ae0
+.org 0x1028f8
+	.byte 0xb0,0xe8,0x02,0x02	@ 001028f8 data
+.org 0x1028fc
+	ldrb r1, [r2, #6]	@ 001028fc 9179
+.org 0x1028fe
+	movs r0, #16	@ 001028fe 1020
+.org 0x102900
+	ands r0, r1	@ 00102900 0840
+.org 0x102902
+	cmp r0, #0	@ 00102902 0028
+.org 0x102904
+	beq.n 0x102928	@ 00102904 10d0
+.org 0x102906
+	movs r4, #9	@ 00102906 0924
+.org 0x102908
+	movs r0, #32	@ 00102908 2020
+.org 0x10290a
+	ands r0, r1	@ 0010290a 0840
+.org 0x10290c
+	cmp r0, #0	@ 0010290c 0028
+.org 0x10290e
+	beq.n 0x10294e	@ 0010290e 1ed0
+.org 0x102910
+	movs r4, #11	@ 00102910 0b24
+.org 0x102912
+	movs r0, #64	@ 00102912 4020
+.org 0x102914
+	ands r0, r1	@ 00102914 0840
+.org 0x102916
+	cmp r0, #0	@ 00102916 0028
+.org 0x102918
+	beq.n 0x10294e	@ 00102918 19d0
+.org 0x10291a
+	movs r4, #13	@ 0010291a 0d24
+.org 0x10291c
+	movs r0, #128	@ 0010291c 8020
+.org 0x10291e
+	ands r0, r1	@ 0010291e 0840
+.org 0x102920
+	cmp r0, #0	@ 00102920 0028
+.org 0x102922
+	beq.n 0x10294e	@ 00102922 14d0
+.org 0x102924
+	movs r4, #15	@ 00102924 0f24
+.org 0x102926
+	b.n 0x10294e	@ 00102926 12e0
+.org 0x102928
+	adds r0, r4, #0	@ 00102928 201c
+.org 0x10292a
+	ands r0, r1	@ 0010292a 0840
+.org 0x10292c
+	cmp r0, #0	@ 0010292c 0028
+.org 0x10292e
+	beq.n 0x10294e	@ 0010292e 0ed0
+.org 0x102930
+	movs r0, #2	@ 00102930 0220
+.org 0x102932
+	ands r0, r1	@ 00102932 0840
+.org 0x102934
+	cmp r0, #0	@ 00102934 0028
+.org 0x102936
+	beq.n 0x10294e	@ 00102936 0ad0
+.org 0x102938
+	movs r4, #3	@ 00102938 0324
+.org 0x10293a
+	movs r0, #4	@ 0010293a 0420
+.org 0x10293c
+	ands r0, r1	@ 0010293c 0840
+.org 0x10293e
+	cmp r0, #0	@ 0010293e 0028
+.org 0x102940
+	beq.n 0x10294e	@ 00102940 05d0
+.org 0x102942
+	movs r4, #5	@ 00102942 0524
+.org 0x102944
+	movs r0, #8	@ 00102944 0820
+.org 0x102946
+	ands r0, r1	@ 00102946 0840
+.org 0x102948
+	cmp r0, #0	@ 00102948 0028
+.org 0x10294a
+	beq.n 0x10294e	@ 0010294a 00d0
+.org 0x10294c
+	movs r4, #7	@ 0010294c 0724
+.org 0x10294e
+	ldr r0, [pc, #20]	@ 0010294e 0548
+.org 0x102950
+	ldrb r1, [r0, #26]	@ 00102950 817e
+.org 0x102952
+	adds r3, r0, #0	@ 00102952 031c
+.org 0x102954
+	cmp r1, r4	@ 00102954 a142
+.org 0x102956
+	bne.n 0x10296c	@ 00102956 09d1
+.org 0x102958
+	adds r0, r4, #1	@ 00102958 601c
+.org 0x10295a
+	lsls r0, r0, #24	@ 0010295a 0006
+.org 0x10295c
+	lsrs r4, r0, #24	@ 0010295c 040e
+.org 0x10295e
+	ldr r2, [pc, #8]	@ 0010295e 024a
+.org 0x102960
+	b.n 0x10299e	@ 00102960 1de0
+.org 0x102962
+	.byte 0x00	@ 00102962 data
+.org 0x102963
+	.byte 0x00	@ 00102963 data
+.org 0x102964
+	.byte 0xb0,0xe8,0x02,0x02	@ 00102964 data
+.org 0x102968
+	.byte 0xea,0xbb,0x86,0x08	@ 00102968 data
+.org 0x10296c
+	ldr r2, [pc, #32]	@ 0010296c 084a
+.org 0x10296e
+	lsls r0, r4, #1	@ 0010296e 6000
+.org 0x102970
+	adds r0, r0, r2	@ 00102970 8018
+.org 0x102972
+	ldrh r1, [r0, #0]	@ 00102972 0188
+.org 0x102974
+	ldr r0, [pc, #28]	@ 00102974 0748
+.org 0x102976
+	cmp r1, r0	@ 00102976 8142
+.org 0x102978
+	bne.n 0x10299c	@ 00102978 10d1
+.org 0x10297a
+	ldr r0, [pc, #28]	@ 0010297a 0748
+.org 0x10297c
+	ldr r0, [r0, #0]	@ 0010297c 0068
+.org 0x10297e
+	ldrb r1, [r0, #1]	@ 0010297e 4178
+.org 0x102980
+	movs r0, #1	@ 00102980 0120
+.org 0x102982
+	ands r0, r1	@ 00102982 0840
+.org 0x102984
+	cmp r0, #0	@ 00102984 0028
+.org 0x102986
+	beq.n 0x10299c	@ 00102986 09d0
+.org 0x102988
+	adds r0, r4, #1	@ 00102988 601c
+.org 0x10298a
+	lsls r0, r0, #24	@ 0010298a 0006
+.org 0x10298c
+	lsrs r4, r0, #24	@ 0010298c 040e
+.org 0x10298e
+	b.n 0x10299e	@ 0010298e 06e0

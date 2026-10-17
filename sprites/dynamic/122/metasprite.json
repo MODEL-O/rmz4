@@ -1,0 +1,190 @@
+{
+  "label": "gMetaSprite_dynamic_122",
+  "data": [
+    {
+      "sheetIdx": 0,
+      "subsprites": [
+        {
+          "tileNum": 12,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            8,
+            16
+          ],
+          "x": 27,
+          "y": -24
+        },
+        {
+          "tileNum": 0,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            32,
+            16
+          ],
+          "x": -4,
+          "y": -32
+        },
+        {
+          "tileNum": 8,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            16,
+            16
+          ],
+          "x": -20,
+          "y": -24
+        },
+        {
+          "tileNum": 0,
+          "xflip": false,
+          "yflip": true,
+          "size": [
+            32,
+            16
+          ],
+          "x": -4,
+          "y": -16
+        }
+      ]
+    },
+    {
+      "sheetIdx": 1,
+      "subsprites": [
+        {
+          "tileNum": 0,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            32,
+            16
+          ],
+          "x": 1,
+          "y": -32
+        },
+        {
+          "tileNum": 8,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            16,
+            16
+          ],
+          "x": -11,
+          "y": -24
+        },
+        {
+          "tileNum": 12,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            8,
+            8
+          ],
+          "x": -24,
+          "y": -20
+        },
+        {
+          "tileNum": 0,
+          "xflip": false,
+          "yflip": true,
+          "size": [
+            32,
+            16
+          ],
+          "x": 1,
+          "y": -16
+        }
+      ]
+    },
+    {
+      "sheetIdx": 2,
+      "subsprites": [
+        {
+          "tileNum": 0,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            32,
+            16
+          ],
+          "x": 0,
+          "y": -32
+        },
+        {
+          "tileNum": 16,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            8,
+            16
+          ],
+          "x": -11,
+          "y": -24
+        },
+        {
+          "tileNum": 20,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            8,
+            8
+          ],
+          "x": -27,
+          "y": -20
+        },
+        {
+          "tileNum": 0,
+          "xflip": false,
+          "yflip": true,
+          "size": [
+            32,
+            16
+          ],
+          "x": 0,
+          "y": -16
+        }
+      ]
+    },
+    {
+      "sheetIdx": 2,
+      "subsprites": [
+        {
+          "tileNum": 18,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            8,
+            16
+          ],
+          "x": 21,
+          "y": -24
+        },
+        {
+          "tileNum": 8,
+          "xflip": false,
+          "yflip": false,
+          "size": [
+            32,
+            16
+          ],
+          "x": -22,
+          "y": -32
+        },
+        {
+          "tileNum": 8,
+          "xflip": false,
+          "yflip": true,
+          "size": [
+            32,
+            16
+          ],
+          "x": -22,
+          "y": -16
+        }
+      ]
+    }
+  ]
+}

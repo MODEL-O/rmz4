@@ -1,0 +1,41 @@
+@ FUN_08019180  entry 0x08019180  size 54
+.thumb
+.org 0x19180
+FUN_08019180:
+	push {lr}	@ 00019180 00b5
+.org 0x19182
+	movs r0, #150	@ 00019182 9620
+.org 0x19184
+	bl 0x2624	@ 00019184 e9f74efa
+.org 0x19188
+	movs r0, #151	@ 00019188 9720
+.org 0x1918a
+	bl 0x2624	@ 0001918a e9f74bfa
+.org 0x1918e
+	movs r0, #152	@ 0001918e 9820
+.org 0x19190
+	bl 0x2624	@ 00019190 e9f748fa
+.org 0x19194
+	movs r0, #153	@ 00019194 9920
+.org 0x19196
+	bl 0x2624	@ 00019196 e9f745fa
+.org 0x1919a
+	movs r0, #154	@ 0001919a 9a20
+.org 0x1919c
+	bl 0x2624	@ 0001919c e9f742fa
+.org 0x191a0
+	movs r0, #155	@ 000191a0 9b20
+.org 0x191a2
+	bl 0x2624	@ 000191a2 e9f73ffa
+.org 0x191a6
+	movs r0, #156	@ 000191a6 9c20
+.org 0x191a8
+	bl 0x2624	@ 000191a8 e9f73cfa
+.org 0x191ac
+	movs r0, #157	@ 000191ac 9d20
+.org 0x191ae
+	bl 0x2624	@ 000191ae e9f739fa
+.org 0x191b2
+	pop {r0}	@ 000191b2 01bc
+.org 0x191b4
+	bx r0	@ 000191b4 0047

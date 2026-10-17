@@ -1,0 +1,366 @@
+MISS  编译失败   FUN_080001d4  called object is not a function
+MISS  编译失败   FUN_080002dc  `stack0xffffffdc' undeclared (first use in this function)
+MISS  编译失败   FUN_08000300  `stack0xffffffe0' undeclared (first use in this function)
+MISS  字节不符   FUN_08000328  5 字节不同
+MISS  字节不符   FUN_0800053c  75 字节不同
+MISS  字节不符   FUN_08000590  198 字节不同
+MISS  字节不符   FUN_080006c8  176 字节不同
+MISS  字节不符   FUN_080007cc  168 字节不同
+MISS  字节不符   FUN_080008c8  244 字节不同
+MATCH -O2  clean FUN_080009f8
+MATCH -O2  clean FUN_08000a04
+MISS  字节不符   FUN_08000a10  57 字节不同
+MISS  字节不符   FUN_08000a70  50 字节不同
+MISS  字节不符   FUN_08000ab4  64 字节不同
+MISS  字节不符   FUN_08000b30  99 字节不同
+MISS  字节不符   FUN_08000ba8  137 字节不同
+MISS  字节不符   FUN_08000c98  106 字节不同
+MISS  字节不符   FUN_08000d84  115 字节不同
+MISS  字节不符   FUN_08000e24  137 字节不同
+MISS  字节不符   FUN_08000edc  189 字节不同
+MISS  字节不符   FUN_08000fd4  69 字节不同
+MISS  字节不符   FUN_0800102c  69 字节不同
+MISS  字节不符   FUN_08001084  104 字节不同
+MISS  字节不符   FUN_08001108  40 字节不同
+MISS  字节不符   FUN_08001140  40 字节不同
+MISS  字节不符   FUN_08001178  52 字节不同
+MATCH -O2  lit   FUN_080011c0
+MISS  字节不符   FUN_080011cc  33 字节不同
+MISS  字节不符   FUN_080011fc  85 字节不同
+MATCH -O2  manual FUN_08001294
+MISS  字节不符   FUN_080012b8  30 字节不同
+MISS  字节不符   FUN_080012ec  34 字节不同
+MISS  字节不符   FUN_08001330  10 字节不同
+MISS  字节不符   FUN_08001354  28 字节不同
+MATCH -O2  lit   FUN_08001390
+MISS  字节不符   FUN_080013b0  33 字节不同
+MATCH -O1  lit   FUN_080013e8
+MATCH -O1  lit   FUN_08001408
+MISS  字节不符   FUN_08001430  18 字节不同
+MATCH -O2  clean FUN_08001454
+MISS  字节不符   FUN_08001464  30 字节不同
+MATCH -O2  lit   FUN_08001490
+MISS  字节不符   FUN_080014b0  110 字节不同
+MISS  字节不符   FUN_0800153c  10 字节不同
+MATCH -O2  manual FUN_0800155c
+MISS  字节不符   FUN_08001574  14 字节不同
+MISS  编译失败   FUN_08001594  invalid type argument of `unary *'
+MISS  字节不符   FUN_08001658  61 字节不同
+MISS  字节不符   FUN_080016ac  45 字节不同
+MISS  字节不符   FUN_080016f0  47 字节不同
+MISS  字节不符   FUN_0800174c  297 字节不同
+MISS  字节不符   FUN_080018f4  369 字节不同
+MISS  字节不符   FUN_08001aa0  92 字节不同
+MATCH -O2  manual FUN_08001b24
+MISS  字节不符   FUN_08001b38  97 字节不同
+MISS  字节不符   FUN_08001bb0  64 字节不同
+MISS  字节不符   FUN_08001c04  17 字节不同
+MISS  字节不符   FUN_08001c3c  197 字节不同
+MISS  字节不符   FUN_08001d30  302 字节不同
+MISS  字节不符   FUN_08001ea4  106 字节不同
+MISS  字节不符   FUN_08001f1c  74 字节不同
+MISS  字节不符   FUN_08001f78  74 字节不同
+MISS  字节不符   FUN_08001fd4  28 字节不同
+MISS  字节不符   FUN_0800201c  8 字节不同
+MISS  字节不符   FUN_0800202c  70 字节不同
+MISS  字节不符   FUN_08002094  237 字节不同
+MISS  字节不符   FUN_08002208  66 字节不同
+MISS  字节不符   FUN_08002260  61 字节不同
+MISS  字节不符   FUN_080022a4  73 字节不同
+MISS  字节不符   FUN_080022f4  72 字节不同
+MISS  字节不符   FUN_08002348  16 字节不同
+MISS  字节不符   FUN_08002364  167 字节不同
+MISS  字节不符   FUN_0800243c  30 字节不同
+MISS  字节不符   FUN_08002464  39 字节不同
+MISS  字节不符   FUN_0800249c  249 字节不同
+MISS  字节不符   FUN_080025d8  59 字节不同
+MISS  字节不符   FUN_08002624  45 字节不同
+MISS  字节不符   FUN_08002664  43 字节不同
+MISS  字节不符   FUN_080026d0  69 字节不同
+MISS  字节不符   FUN_08002734  104 字节不同
+MISS  字节不符   FUN_080027b8  83 字节不同
+MISS  字节不符   FUN_08002820  40 字节不同
+MISS  编译失败   FUN_08002868  invalid type argument of `unary *'
+MATCH -O2  manual FUN_080028e0
+MISS  字节不符   FUN_080028ec  12 字节不同
+MATCH -O2  lit   FUN_0800290c
+MISS  字节不符   FUN_0800291c  56 字节不同
+MATCH -O2  manual FUN_08002970
+MATCH -O2  manual FUN_0800297c
+MISS  字节不符   FUN_08002990  19 字节不同
+MISS  字节不符   FUN_080029c0  3 字节不同
+MISS  字节不符   FUN_080029dc  40 字节不同
+MATCH -O2  clean FUN_08002a10
+MISS  字节不符   FUN_08002a1c  16 字节不同
+MISS  字节不符   FUN_08002a50  16 字节不同
+MATCH -O2  clean FUN_08002a88
+MISS  字节不符   FUN_08002a98  16 字节不同
+MISS  字节不符   FUN_08002ad0  39 字节不同
+MISS  字节不符   FUN_08002b10  40 字节不同
+MATCH -O1  clean FUN_08002b5c
+MISS  字节不符   FUN_08002b7c  31 字节不同
+MISS  字节不符   FUN_08002bb4  6 字节不同
+MISS  字节不符   FUN_08002bcc  16 字节不同
+MATCH -O2  lit   FUN_08002c0c
+MISS  字节不符   FUN_08002c40  69 字节不同
+MATCH -O2  raw   FUN_08002c94
+MISS  字节不符   FUN_08002cb8  34 字节不同
+MISS  字节不符   FUN_08002d24  53 字节不同
+MISS  字节不符   FUN_08002d94  57 字节不同
+MISS  字节不符   FUN_08002e0c  52 字节不同
+MISS  字节不符   FUN_0800305c  395 字节不同
+MISS  字节不符   FUN_08003240  109 字节不同
+MISS  字节不符   FUN_080032f0  120 字节不同
+MATCH -O2  lit   FUN_08003384
+MATCH -O2  raw   FUN_080033bc
+MATCH -O2  raw   FUN_080033d4
+MISS  字节不符   FUN_080033fc  23 字节不同
+MISS  字节不符   FUN_08003420  17 字节不同
+MISS  字节不符   FUN_08003470  4 字节不同
+MATCH -O2  raw   FUN_080034a4
+MISS  字节不符   FUN_080034b8  29 字节不同
+MISS  字节不符   FUN_08003518  65 字节不同
+MATCH -O2  lit   FUN_080035f8
+MISS  字节不符   FUN_08003620  1159 字节不同
+MISS  字节不符   FUN_08003af4  85 字节不同
+MISS  字节不符   FUN_08003b58  127 字节不同
+MISS  字节不符   FUN_08003be4  956 字节不同
+MISS  字节不符   FUN_08003fe0  653 字节不同
+MISS  字节不符   FUN_080042a4  1062 字节不同
+MISS  字节不符   FUN_08004714  615 字节不同
+MISS  字节不符   FUN_080049e4  610 字节不同
+MISS  字节不符   FUN_08004ca8  615 字节不同
+MISS  字节不符   FUN_08004f50  37 字节不同
+MISS  字节不符   FUN_08004f80  174 字节不同
+MISS  字节不符   FUN_08005050  154 字节不同
+MISS  字节不符   FUN_08005124  346 字节不同
+MATCH -O2  manual FUN_080052b4
+MISS  字节不符   FUN_080052d0  12 字节不同
+MATCH -O2  raw   FUN_0800531c
+MATCH -O2  clean FUN_08005328
+MISS  字节不符   FUN_0800533c  78 字节不同
+MISS  字节不符   FUN_080053ac  94 字节不同
+MISS  字节不符   FUN_08005418  14 字节不同
+MISS  字节不符   FUN_08005440  62 字节不同
+MISS  字节不符   FUN_08005494  24 字节不同
+MATCH -O2  lit   FUN_080054b4
+MATCH -O2  raw   FUN_080054c4
+MISS  字节不符   FUN_080054cc  35 字节不同
+MISS  字节不符   FUN_08005500  35 字节不同
+MISS  字节不符   FUN_08005534  32 字节不同
+MISS  字节不符   FUN_0800556c  31 字节不同
+MATCH -O2  lit   FUN_080055a4
+MATCH -O2  raw   FUN_080055c8
+MATCH -O2  lit   FUN_080055f4
+MISS  字节不符   FUN_0800560c  43 字节不同
+MISS  字节不符   FUN_08005650  179 字节不同
+MISS  字节不符   FUN_08005760  12 字节不同
+MATCH -O2  raw   FUN_08005784
+MISS  字节不符   FUN_08005794  86 字节不同
+MISS  字节不符   FUN_080057fc  8 字节不同
+MISS  字节不符   FUN_0800580c  163 字节不同
+MISS  字节不符   FUN_080058cc  194 字节不同
+MISS  字节不符   FUN_080059d4  254 字节不同
+MISS  字节不符   FUN_08005b30  155 字节不同
+MISS  字节不符   FUN_08005bec  1182 字节不同
+MISS  字节不符   FUN_0800613c  143 字节不同
+MISS  字节不符   FUN_080061ec  115 字节不同
+MISS  字节不符   FUN_0800627c  67 字节不同
+MISS  字节不符   FUN_080062e8  64 字节不同
+MISS  字节不符   FUN_08006360  64 字节不同
+MISS  字节不符   FUN_080063d8  485 字节不同
+MISS  字节不符   FUN_08006610  405 字节不同
+MISS  字节不符   FUN_08006808  130 字节不同
+MATCH -O2  lit   FUN_080068cc
+MISS  字节不符   FUN_080068e0  53 字节不同
+MISS  字节不符   FUN_0800694c  14 字节不同
+MISS  字节不符   FUN_08006984  27 字节不同
+MISS  字节不符   FUN_080069bc  35 字节不同
+MISS  字节不符   FUN_080069f4  44 字节不同
+MISS  字节不符   FUN_08006a30  38 字节不同
+MISS  字节不符   FUN_08006a6c  18 字节不同
+MISS  字节不符   FUN_08006a94  310 字节不同
+MISS  字节不符   FUN_08006c58  177 字节不同
+MATCH -O2  lit   FUN_08006d2c
+MISS  字节不符   FUN_08006d3c  50 字节不同
+MISS  字节不符   FUN_08006d80  212 字节不同
+MISS  字节不符   FUN_08006e94  126 字节不同
+MISS  字节不符   FUN_08006f50  42 字节不同
+MISS  字节不符   FUN_08006f94  111 字节不同
+MISS  字节不符   FUN_08007020  87 字节不同
+MISS  字节不符   FUN_08007098  6 字节不同
+MISS  字节不符   FUN_080070b0  15 字节不同
+MISS  字节不符   FUN_080070c8  271 字节不同
+MISS  字节不符   FUN_08007220  290 字节不同
+MISS  字节不符   FUN_0800736c  119 字节不同
+MISS  字节不符   FUN_08007410  145 字节不同
+MISS  字节不符   FUN_080074c0  129 字节不同
+MISS  字节不符   FUN_08007560  139 字节不同
+MISS  字节不符   FUN_08007638  246 字节不同
+MISS  字节不符   FUN_08007770  135 字节不同
+MISS  字节不符   FUN_08007830  266 字节不同
+MISS  字节不符   FUN_08007a34  277 字节不同
+MISS  字节不符   FUN_08007b84  139 字节不同
+MISS  字节不符   FUN_08007c7c  129 字节不同
+MISS  字节不符   FUN_08007d28  113 字节不同
+MISS  字节不符   FUN_08007db4  167 字节不同
+MISS  字节不符   FUN_08007e98  185 字节不同
+MISS  字节不符   FUN_08007f8c  186 字节不同
+MISS  字节不符   FUN_08008080  177 字节不同
+MISS  字节不符   FUN_0800816c  198 字节不同
+MISS  字节不符   FUN_08008264  168 字节不同
+MISS  字节不符   FUN_0800834c  207 字节不同
+MISS  字节不符   FUN_08008448  181 字节不同
+MISS  字节不符   FUN_08008534  203 字节不同
+MISS  字节不符   FUN_0800864c  181 字节不同
+MISS  字节不符   FUN_08008748  210 字节不同
+MISS  字节不符   FUN_08008868  203 字节不同
+MISS  字节不符   FUN_08008988  204 字节不同
+MISS  字节不符   FUN_08008aa4  165 字节不同
+MISS  字节不符   FUN_08008b7c  128 字节不同
+MATCH -O2  manual FUN_08008c38
+MISS  字节不符   FUN_08008c4c  129 字节不同
+MISS  字节不符   FUN_08008d04  338 字节不同
+MATCH -O2  manual FUN_08008e98
+MATCH -O2  manual FUN_08008eb8
+MATCH -O2  manual FUN_08008ed8
+MATCH -O2  manual FUN_08008ef8
+MATCH -O2  manual FUN_08008f18
+MATCH -O2  manual FUN_08008f38
+MATCH -O2  manual FUN_08008f58
+MISS  字节不符   FUN_08008f6c  20 字节不同
+MATCH -O2  manual FUN_08008f8c
+MISS  字节不符   FUN_08008fa0  20 字节不同
+MISS  字节不符   FUN_08008fc0  20 字节不同
+MISS  字节不符   FUN_08008fe0  20 字节不同
+MISS  字节不符   FUN_08009000  9 字节不同
+MISS  字节不符   FUN_08009014  9 字节不同
+MISS  字节不符   FUN_0800902c  9 字节不同
+MISS  字节不符   FUN_08009040  9 字节不同
+MISS  字节不符   FUN_08009058  9 字节不同
+MISS  字节不符   FUN_08009070  9 字节不同
+MISS  字节不符   FUN_08009088  9 字节不同
+MISS  字节不符   FUN_080090a4  9 字节不同
+MISS  字节不符   FUN_080090c0  9 字节不同
+MISS  字节不符   FUN_080090dc  9 字节不同
+MISS  字节不符   FUN_080090f8  9 字节不同
+MISS  字节不符   FUN_08009114  9 字节不同
+MISS  字节不符   FUN_08009130  15 字节不同
+MISS  字节不符   FUN_08009160  24 字节不同
+MISS  字节不符   FUN_08009194  15 字节不同
+MISS  字节不符   FUN_080091c4  19 字节不同
+MISS  字节不符   FUN_08009204  19 字节不同
+MISS  字节不符   FUN_08009244  24 字节不同
+MISS  字节不符   FUN_08009278  2 字节不同
+MISS  字节不符   FUN_080092a0  2 字节不同
+MISS  字节不符   FUN_080092c0  2 字节不同
+MISS  字节不符   FUN_080092e8  2 字节不同
+MISS  字节不符   FUN_0800931c  2 字节不同
+MISS  字节不符   FUN_08009350  2 字节不同
+MISS  字节不符   FUN_08009370  133 字节不同
+MISS  字节不符   FUN_08009420  113 字节不同
+MISS  字节不符   FUN_080094a8  129 字节不同
+MISS  字节不符   FUN_08009544  133 字节不同
+MISS  字节不符   FUN_080095e8  132 字节不同
+MISS  字节不符   FUN_08009688  104 字节不同
+MISS  字节不符   FUN_0800972c  139 字节不同
+MISS  字节不符   FUN_080097e4  107 字节不同
+MISS  字节不符   FUN_0800989c  147 字节不同
+MISS  字节不符   FUN_08009954  71 字节不同
+MISS  字节不符   FUN_080099c4  188 字节不同
+MISS  字节不符   FUN_08009af0  31 字节不同
+MISS  字节不符   FUN_08009b5c  893 字节不同
+MISS  字节不符   FUN_08009fa0  88 字节不同
+MISS  字节不符   FUN_0800a02c  267 字节不同
+MISS  字节不符   FUN_0800a194  144 字节不同
+MISS  字节不符   FUN_0800a274  89 字节不同
+MISS  字节不符   FUN_0800a314  107 字节不同
+MISS  字节不符   FUN_0800a3c4  50 字节不同
+MISS  字节不符   FUN_0800a404  52 字节不同
+MISS  字节不符   FUN_0800a460  34 字节不同
+MISS  字节不符   FUN_0800a498  37 字节不同
+MISS  字节不符   FUN_0800a52c  340 字节不同
+MISS  字节不符   FUN_0800a6f0  356 字节不同
+MISS  字节不符   FUN_0800a8a0  66 字节不同
+MISS  字节不符   FUN_0800a900  63 字节不同
+MISS  字节不符   FUN_0800a97c  28 字节不同
+MISS  字节不符   FUN_0800a9d8  121 字节不同
+MISS  字节不符   FUN_0800aa7c  435 字节不同
+MISS  字节不符   FUN_0800acb8  736 字节不同
+MISS  字节不符   FUN_0800b00c  10 字节不同
+MISS  字节不符   FUN_0800b038  142 字节不同
+MISS  字节不符   FUN_0800b138  402 字节不同
+MISS  字节不符   FUN_0800b358  262 字节不同
+MISS  字节不符   FUN_0800b4ac  223 字节不同
+MISS  字节不符   FUN_0800b5ec  283 字节不同
+MATCH -O2  manual FUN_0800b750
+MISS  字节不符   FUN_0800b764  140 字节不同
+MISS  字节不符   FUN_0800b838  150 字节不同
+MISS  字节不符   FUN_0800b970  768 字节不同
+MISS  字节不符   FUN_0800bce4  493 字节不同
+MISS  字节不符   FUN_0800bf90  95 字节不同
+MISS  字节不符   FUN_0800c02c  259 字节不同
+MISS  字节不符   FUN_0800c1ac  713 字节不同
+MISS  字节不符   FUN_0800c558  217 字节不同
+MISS  字节不符   FUN_0800c66c  71 字节不同
+MISS  字节不符   FUN_0800c6d8  30 字节不同
+MISS  字节不符   FUN_0800c774  786 字节不同
+MISS  字节不符   FUN_0800cb48  94 字节不同
+MATCH -O2  clean FUN_0800cbc4
+MISS  字节不符   FUN_0800cc20  82 字节不同
+MATCH -O2  clean FUN_0800ccbc
+MISS  字节不符   FUN_0800ccd4  116 字节不同
+MISS  字节不符   FUN_0800cd88  195 字节不同
+MISS  字节不符   FUN_0800cea0  72 字节不同
+MISS  字节不符   FUN_0800cf20  195 字节不同
+MISS  字节不符   FUN_0800d020  194 字节不同
+MISS  字节不符   FUN_0800d14c  16 字节不同
+MISS  字节不符   FUN_0800d180  94 字节不同
+MISS  字节不符   FUN_0800d214  598 字节不同
+MISS  字节不符   FUN_0800d4d4  113 字节不同
+MISS  字节不符   FUN_0800d584  144 字节不同
+MISS  字节不符   FUN_0800d65c  113 字节不同
+MISS  字节不符   FUN_0800d70c  144 字节不同
+MISS  字节不符   FUN_0800d7e4  4 字节不同
+MISS  字节不符   FUN_0800d7f4  9 字节不同
+MISS  字节不符   FUN_0800d830  541 字节不同
+MISS  字节不符   FUN_0800dad0  79 字节不同
+MATCH -O2  clean FUN_0800db3c
+MISS  字节不符   FUN_0800db78  153 字节不同
+MISS  字节不符   FUN_0800dc70  696 字节不同
+MISS  字节不符   FUN_0800dfe0  10 字节不同
+MISS  字节不符   FUN_0800e024  15 字节不同
+MISS  字节不符   FUN_0800e074  578 字节不同
+MISS  字节不符   FUN_0800e33c  746 字节不同
+MISS  字节不符   FUN_0800e71c  46 字节不同
+MISS  字节不符   FUN_0800e75c  6 字节不同
+MISS  字节不符   FUN_0800e788  71 字节不同
+MISS  字节不符   FUN_0800e828  10 字节不同
+MISS  字节不符   FUN_0800e85c  28 字节不同
+MISS  字节不符   FUN_0800e8b8  66 字节不同
+MISS  字节不符   FUN_0800e934  26 字节不同
+MISS  字节不符   FUN_0800e99c  889 字节不同
+MISS  字节不符   FUN_0800edf8  378 字节不同
+MATCH -O2  clean FUN_0800eff8
+MISS  字节不符   FUN_0800f03c  75 字节不同
+MISS  字节不符   FUN_0800f0ec  30 字节不同
+MISS  字节不符   FUN_0800f14c  60 字节不同
+MISS  字节不符   FUN_0800f1e8  148 字节不同
+MISS  字节不符   FUN_0800f2a0  397 字节不同
+MISS  字节不符   FUN_0800f4a8  268 字节不同
+MISS  字节不符   FUN_0800f61c  116 字节不同
+MISS  字节不符   FUN_0800f6b4  15 字节不同
+MISS  字节不符   FUN_0800f6c8  22 字节不同
+MATCH -O2  clean FUN_0800f728
+MISS  字节不符   FUN_0800f744  50 字节不同
+MATCH -O2  clean FUN_0800f7ac
+MISS  字节不符   FUN_0800f7b8  6 字节不同
+MISS  字节不符   FUN_0800f7e4  35 字节不同
+MISS  字节不符   FUN_0800f830  46 字节不同
+MISS  字节不符   FUN_0800f870  72 字节不同
+MISS  字节不符   FUN_0800f8f0  52 字节不同
+MISS  字节不符   FUN_0800f974  678 字节不同
+MATCH -O2  clean FUN_0800fcc0
+MATCH -O2  manual FUN_0800fd20
+MISS  字节不符   FUN_0800fd34  109 字节不同
+MISS  字节不符   FUN_0800fddc  1517 字节不同

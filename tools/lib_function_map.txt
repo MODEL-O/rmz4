@@ -1,0 +1,8 @@
+# agbcc lib byte-match vs code.bin  (6 hits)
+# VA          name                          lib      bytes wild
+0x08128fb8  __divsi3                       libgcc     146 4
+0x08129050  __modsi3                       libgcc     206 4
+0x08129120  __udivsi3                      libgcc     120 4
+0x08129198  __umodsi3                      libgcc     192 4
+0x08129258  memcpy                         libc        94 0
+0x081292b8  memset                         libc        82 0

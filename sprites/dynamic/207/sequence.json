@@ -1,0 +1,15 @@
+{
+  "label": "gAnimationSequence_dynamic_207",
+  "data": [
+    [
+      {
+        "frameIdx": 0,
+        "duration": 1
+      },
+      {
+        "frameIdx": 0,
+        "duration": 255
+      }
+    ]
+  ]
+}

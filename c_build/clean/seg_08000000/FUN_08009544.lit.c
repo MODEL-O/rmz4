@@ -1,0 +1,41 @@
+// undefined FUN_08009544(void)
+// entry 0x8009544
+
+
+undefined4 FUN_08009544(int param_1,int param_2)
+
+{
+  uint uVar1;
+  int *piVar2;
+  uint uVar3;
+  uint uVar4;
+  int iVar5;
+  int *piVar6;
+  int iVar7;
+  while( true ) {
+    iVar5 = 0;
+    if (*(byte *)(0x02000ab0 + 0x1d2) == 0) break;
+    piVar6 = (int *)(0x02000ab0 + 0x1e0);
+    piVar2 = (int *)(0x02000ab0 + 0x1dc);
+    iVar7 = 0x02000ab0;
+    while( true ) {
+      uVar4 = (uint)*(ushort *)(iVar7 + 0x1d8);
+      uVar1 = (param_1 - *piVar2) + uVar4;
+      if (((uVar1 <= uVar4 * 2 && uVar4 * 2 - uVar1 != 0) &&
+          (uVar3 = (uint)*(ushort *)(iVar7 + 0x1da) * 2,
+          uVar1 = ((param_2 - *piVar6) + (uint)*(ushort *)(iVar7 + 0x1da)) - 1,
+          uVar1 <= uVar3 && uVar3 - uVar1 != 0)) && ((*(ushort *)(iVar7 + 0x1d6) & 0x8400) == 0))
+      break;
+      piVar6 = piVar6 + 6;
+      piVar2 = piVar2 + 6;
+      iVar7 = iVar7 + 0x18;
+      iVar5 = iVar5 + 1;
+      if ((int)(uint)*(byte *)(0x02000ab0 + 0x1d2) <= iVar5) goto LAB_080095d6;
+    }
+    param_1 = (*piVar2 - uVar4) + -1;
+  }
+LAB_080095d6:
+  return param_1;
+}
+
+

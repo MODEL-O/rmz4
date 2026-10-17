@@ -1,0 +1,7 @@
+ROM header
+  title      : ROCKMANZERO4
+  game code  : B4ZJ
+  maker code : 08
+  size       : 17825792 bytes (0x1100000)
+  layout     : code/.text 0x0..0x12A000 | 资源 0x12A000..0x1100000
+  sha1       : d60d6be4d966850aa462eef4d65b74563a465dbe

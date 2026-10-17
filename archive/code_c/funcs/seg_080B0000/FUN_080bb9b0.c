@@ -1,0 +1,50 @@
+// undefined FUN_080bb9b0(void)
+// entry 0x80bb9b0
+
+
+undefined4 FUN_080bb9b0(int param_1)
+
+{
+  bool bVar1;
+  byte bVar2;
+  char cVar3;
+  int iVar4;
+  undefined4 in_lr;
+  
+  iVar4 = *(int *)(param_1 + 0x28);
+  if (*(char *)(param_1 + 0xf) == '\0') {
+    FUN_08005784(param_1 + 0x74,DAT_080bba1c);
+    *DAT_080bba20 = (short)DAT_080bba24;
+    *(byte *)(param_1 + 0x45) = *(byte *)(param_1 + 0x45) & 0xf3 | 4;
+    FUN_0801ceec(param_1);
+    *(undefined1 *)(param_1 + 0x22) = 0;
+    FUN_0801cf00(param_1,0xba00);
+    *(undefined1 *)(param_1 + 0x25) = 0x18;
+    bVar1 = *(int *)(param_1 + 0x54) < *(int *)(*DAT_080bba28 + 0x54);
+    if (bVar1) {
+      bVar2 = *(byte *)(param_1 + 10) | 0x10;
+    }
+    else {
+      bVar2 = *(byte *)(param_1 + 10) & 0xef;
+    }
+    *(byte *)(param_1 + 10) = bVar2;
+    *(bool *)(param_1 + 0x4c) = bVar1;
+    *(byte *)(param_1 + 0x4a) = *(byte *)(param_1 + 0x4a) & 0xef | bVar1 << 4;
+    *(int *)(param_1 + 0x58) = *(int *)(iVar4 + 0xb8) + DAT_080bba98;
+    *(undefined1 *)(param_1 + 0x12) = 0x10;
+    *(char *)(param_1 + 0xf) = *(char *)(param_1 + 0xf) + '\x01';
+  }
+  FUN_0801cff0(param_1);
+  cVar3 = *(char *)(param_1 + 0x12) + -1;
+  *(char *)(param_1 + 0x12) = cVar3;
+  *(ushort *)(DAT_080bba9c + 2) =
+       0x10 - *(byte *)(param_1 + 0x12) & 0x1f | (ushort)*(byte *)(param_1 + 0x12) << 8;
+  if (cVar3 == '\0') {
+    *(undefined1 *)(param_1 + 0xd) = 3;
+    *(undefined1 *)(param_1 + 0xe) = 0;
+    *(undefined1 *)(param_1 + 0xf) = 0;
+  }
+  return in_lr;
+}
+
+

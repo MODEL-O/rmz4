@@ -1,0 +1,52 @@
+{
+  "name": "stage05_0",
+  "id": 5,
+  "struct": "0x0883114c",
+  "landscapeEntries": [
+    10
+  ],
+  "tilesetOffsetIndex": [
+    5
+  ],
+  "layers": [
+    {
+      "bgIdx": 1,
+      "prio": 2,
+      "screenBase": 512,
+      "scrollPower": [
+        256,
+        256
+      ],
+      "scroll": [
+        0,
+        0
+      ]
+    },
+    {
+      "bgIdx": 2,
+      "prio": 1,
+      "screenBase": 1024,
+      "scrollPower": [
+        256,
+        256
+      ],
+      "scroll": [
+        0,
+        0
+      ]
+    },
+    {
+      "bgIdx": 3,
+      "prio": 3,
+      "screenBase": 1536,
+      "scrollPower": [
+        256,
+        256
+      ],
+      "scroll": [
+        0,
+        0
+      ]
+    }
+  ]
+}

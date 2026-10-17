@@ -1,0 +1,53 @@
+@ FUN_0804982c  entry 0x0804982c  size 58
+.thumb
+.org 0x4982c
+FUN_0804982c:
+	push {r4, lr}	@ 0004982c 10b5
+.org 0x4982e
+	adds r4, r0, #0	@ 0004982e 041c
+.org 0x49830
+	adds r0, #189	@ 00049830 bd30
+.org 0x49832
+	ldrb r0, [r0, #0]	@ 00049832 0078
+.org 0x49834
+	cmp r0, #0	@ 00049834 0028
+.org 0x49836
+	beq.n 0x4985a	@ 00049836 10d0
+.org 0x49838
+	ldrb r0, [r4, #16]	@ 00049838 207c
+.org 0x4983a
+	cmp r0, #0	@ 0004983a 0028
+.org 0x4983c
+	bne.n 0x49850	@ 0004983c 08d1
+.org 0x4983e
+	adds r1, r4, #0	@ 0004983e 211c
+.org 0x49840
+	adds r1, #84	@ 00049840 5431
+.org 0x49842
+	movs r0, #1	@ 00049842 0120
+.org 0x49844
+	bl 0xd0c88	@ 00049844 87f020fa
+.org 0x49848
+	movs r0, #53	@ 00049848 3520
+.org 0x4984a
+	bl 0x2b10	@ 0004984a b9f761f9
+.org 0x4984e
+	b.n 0x4985a	@ 0004984e 04e0
+.org 0x49850
+	adds r1, r4, #0	@ 00049850 211c
+.org 0x49852
+	adds r1, #84	@ 00049852 5431
+.org 0x49854
+	movs r0, #2	@ 00049854 0220
+.org 0x49856
+	bl 0xd0c88	@ 00049856 87f017fa
+.org 0x4985a
+	adds r0, r4, #0	@ 0004985a 201c
+.org 0x4985c
+	bl 0x3a8b4	@ 0004985c f1f72af8
+.org 0x49860
+	pop {r4}	@ 00049860 10bc
+.org 0x49862
+	pop {r0}	@ 00049862 01bc
+.org 0x49864
+	bx r0	@ 00049864 0047

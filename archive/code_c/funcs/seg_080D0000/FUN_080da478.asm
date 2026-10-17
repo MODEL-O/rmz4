@@ -1,0 +1,24 @@
+; undefined FUN_080da478(void)
+; entry 0x80da478  size 44 bytes
+
+080DA478: 10b5         push {r4,lr}
+080DA47A: 041c         add r4,r0,#0x0
+080DA47C: 42f7b8fd     bl 0x0801cff0
+080DA480: a07c         ldrb r0,[r4,#0x12]
+080DA482: 0138         sub r0,#0x1
+080DA484: a074         strb r0,[r4,#0x12]
+080DA486: 0006         lsl r0,r0,#0x18
+080DA488: 0028         cmp r0,#0x0
+080DA48A: 08d1         bne 0x080da49e
+080DA48C: 0549         ldr r1,[0x080da4a4]
+080DA48E: 607a         ldrb r0,[r4,#0x9]
+080DA490: 8000         lsl r0,r0,#0x2
+080DA492: 4018         add r0,r0,r1
+080DA494: 0221         mov r1,#0x2
+080DA496: e160         str r1,[r4,#0xc]
+080DA498: 0068         ldr r0,[r0,#0x0]
+080DA49A: 8068         ldr r0,[r0,#0x8]
+080DA49C: 6061         str r0,[r4,#0x14]
+080DA49E: 10bc         pop {r4}
+080DA4A0: 01bc         pop {r0}
+080DA4A2: 0047         bx r0

@@ -1,0 +1,363 @@
+@ FUN_081255f8  entry 0x081255f8  size 424
+.thumb
+.org 0x1255f8
+FUN_081255f8:
+	push {r4, r5, r6, r7, lr}	@ 001255f8 f0b5
+.org 0x1255fa
+	mov r7, r9	@ 001255fa 4f46
+.org 0x1255fc
+	mov r6, r8	@ 001255fc 4646
+.org 0x1255fe
+	push {r6, r7}	@ 001255fe c0b4
+.org 0x125600
+	mov r8, r0	@ 00125600 8046
+.org 0x125602
+	ldr r1, [pc, #176]	@ 00125602 2c49
+.org 0x125604
+	ldr r7, [pc, #176]	@ 00125604 2c4f
+.org 0x125606
+	add r7, r8	@ 00125606 4744
+.org 0x125608
+	ldrb r0, [r7, #24]	@ 00125608 387e
+.org 0x12560a
+	lsls r0, r0, #2	@ 0012560a 8000
+.org 0x12560c
+	adds r0, r0, r1	@ 0012560c 4018
+.org 0x12560e
+	ldr r1, [r0, #0]	@ 0012560e 0168
+.org 0x125610
+	mov r0, r8	@ 00125610 4046
+.org 0x125612
+	bl 0x128f80	@ 00125612 03f0b5fc
+.org 0x125616
+	mov r9, r0	@ 00125616 8146
+.org 0x125618
+	ldr r0, [r7, #0]	@ 00125618 3868
+.org 0x12561a
+	adds r0, #164	@ 0012561a a430
+.org 0x12561c
+	movs r1, #16	@ 0012561c 1021
+.org 0x12561e
+	strh r1, [r0, #0]	@ 0012561e 0180
+.org 0x125620
+	ldr r0, [r7, #36]	@ 00125620 786a
+.org 0x125622
+	movs r1, #3	@ 00125622 0321
+.org 0x125624
+	ands r0, r1	@ 00125624 0840
+.org 0x125626
+	cmp r0, #1	@ 00125626 0128
+.org 0x125628
+	bne.n 0x12566a	@ 00125628 1fd1
+.org 0x12562a
+	ldr r5, [r7, #20]	@ 0012562a 7d69
+.org 0x12562c
+	movs r0, #225	@ 0012562c e120
+.org 0x12562e
+	lsls r0, r0, #4	@ 0012562e 0001
+.org 0x125630
+	subs r0, r0, r5	@ 00125630 401b
+.org 0x125632
+	movs r1, #60	@ 00125632 3c21
+.org 0x125634
+	bl 0x128fb8	@ 00125634 03f0c0fc
+.org 0x125638
+	lsls r4, r0, #4	@ 00125638 0401
+.org 0x12563a
+	subs r4, r4, r0	@ 0012563a 241a
+.org 0x12563c
+	lsls r4, r4, #2	@ 0012563c a400
+.org 0x12563e
+	str r4, [r7, #8]	@ 0012563e bc60
+.org 0x125640
+	adds r0, r5, #0	@ 00125640 281c
+.org 0x125642
+	movs r1, #60	@ 00125642 3c21
+.org 0x125644
+	bl 0x129050	@ 00125644 03f004fd
+.org 0x125648
+	movs r1, #167	@ 00125648 a721
+.org 0x12564a
+	muls r0, r1	@ 0012564a 4843
+.org 0x12564c
+	movs r5, #100	@ 0012564c 6425
+.org 0x12564e
+	movs r1, #100	@ 0012564e 6421
+.org 0x125650
+	bl 0x128fb8	@ 00125650 03f0b2fc
+.org 0x125654
+	movs r1, #100	@ 00125654 6421
+.org 0x125656
+	subs r1, r1, r0	@ 00125656 091a
+.org 0x125658
+	lsls r1, r1, #24	@ 00125658 0906
+.org 0x12565a
+	lsrs r6, r1, #24	@ 0012565a 0e0e
+.org 0x12565c
+	adds r0, r6, #0	@ 0012565c 301c
+.org 0x12565e
+	muls r0, r5	@ 0012565e 6843
+.org 0x125660
+	movs r1, #167	@ 00125660 a721
+.org 0x125662
+	bl 0x128fb8	@ 00125662 03f0a9fc
+.org 0x125666
+	adds r4, r4, r0	@ 00125666 2418
+.org 0x125668
+	str r4, [r7, #8]	@ 00125668 bc60
+.org 0x12566a
+	ldr r0, [pc, #80]	@ 0012566a 1448
+.org 0x12566c
+	movs r1, #1	@ 0012566c 0121
+.org 0x12566e
+	movs r2, #0	@ 0012566e 0022
+.org 0x125670
+	bl 0x10da2c	@ 00125670 e8f7dcf9
+.org 0x125674
+	ldr r0, [r7, #8]	@ 00125674 b868
+.org 0x125676
+	movs r1, #60	@ 00125676 3c21
+.org 0x125678
+	bl 0x128fb8	@ 00125678 03f09efc
+.org 0x12567c
+	movs r1, #7	@ 0012567c 0721
+.org 0x12567e
+	movs r2, #0	@ 0012567e 0022
+.org 0x125680
+	bl 0x10dae0	@ 00125680 e8f72efa
+.org 0x125684
+	ldr r0, [pc, #56]	@ 00125684 0e48
+.org 0x125686
+	movs r1, #8	@ 00125686 0821
+.org 0x125688
+	movs r2, #0	@ 00125688 0022
+.org 0x12568a
+	bl 0x10da2c	@ 0012568a e8f7cff9
+.org 0x12568e
+	ldr r1, [r7, #20]	@ 0012568e 7969
+.org 0x125690
+	movs r0, #225	@ 00125690 e120
+.org 0x125692
+	lsls r0, r0, #4	@ 00125692 0001
+.org 0x125694
+	cmp r1, r0	@ 00125694 8142
+.org 0x125696
+	beq.n 0x1256c4	@ 00125696 15d0
+.org 0x125698
+	adds r0, r1, #0	@ 00125698 081c
+.org 0x12569a
+	movs r1, #60	@ 0012569a 3c21
+.org 0x12569c
+	bl 0x129050	@ 0012569c 03f0d8fc
+.org 0x1256a0
+	movs r1, #167	@ 001256a0 a721
+.org 0x1256a2
+	muls r0, r1	@ 001256a2 4843
+.org 0x1256a4
+	movs r1, #100	@ 001256a4 6421
+.org 0x1256a6
+	bl 0x128fb8	@ 001256a6 03f087fc
+.org 0x1256aa
+	movs r1, #100	@ 001256aa 6421
+.org 0x1256ac
+	subs r1, r1, r0	@ 001256ac 091a
+.org 0x1256ae
+	lsls r1, r1, #24	@ 001256ae 0906
+.org 0x1256b0
+	lsrs r6, r1, #24	@ 001256b0 0e0e
+.org 0x1256b2
+	b.n 0x1256c6	@ 001256b2 08e0
+.org 0x1256b4
+	.byte 0x00,0x24,0x88,0x08	@ 001256b4 data
+.org 0x1256b8
+	.byte 0xcc,0x0d,0x00,0x00	@ 001256b8 data
+.org 0x1256bc
+	.byte 0x44,0x97,0x13,0x08	@ 001256bc data
+.org 0x1256c0
+	.byte 0x4c,0x97,0x13,0x08	@ 001256c0 data
+.org 0x1256c4
+	movs r6, #0	@ 001256c4 0026
+.org 0x1256c6
+	cmp r6, #100	@ 001256c6 642e
+.org 0x1256c8
+	bne.n 0x1256cc	@ 001256c8 00d1
+.org 0x1256ca
+	movs r6, #0	@ 001256ca 0026
+.org 0x1256cc
+	adds r0, r6, #0	@ 001256cc 301c
+.org 0x1256ce
+	movs r1, #10	@ 001256ce 0a21
+.org 0x1256d0
+	movs r2, #0	@ 001256d0 0022
+.org 0x1256d2
+	bl 0x10dae0	@ 001256d2 e8f705fa
+.org 0x1256d6
+	cmp r6, #9	@ 001256d6 092e
+.org 0x1256d8
+	bhi.n 0x1256e4	@ 001256d8 04d8
+.org 0x1256da
+	movs r0, #0	@ 001256da 0020
+.org 0x1256dc
+	movs r1, #9	@ 001256dc 0921
+.org 0x1256de
+	movs r2, #0	@ 001256de 0022
+.org 0x1256e0
+	bl 0x10dae0	@ 001256e0 e8f7fef9
+.org 0x1256e4
+	ldr r0, [pc, #200]	@ 001256e4 3248
+.org 0x1256e6
+	movs r1, #13	@ 001256e6 0d21
+.org 0x1256e8
+	movs r2, #0	@ 001256e8 0022
+.org 0x1256ea
+	bl 0x10da2c	@ 001256ea e8f79ff9
+.org 0x1256ee
+	ldr r4, [pc, #196]	@ 001256ee 314c
+.org 0x1256f0
+	add r4, r8	@ 001256f0 4444
+.org 0x1256f2
+	ldr r0, [r4, #16]	@ 001256f2 2069
+.org 0x1256f4
+	movs r1, #60	@ 001256f4 3c21
+.org 0x1256f6
+	bl 0x128fb8	@ 001256f6 03f05ffc
+.org 0x1256fa
+	movs r1, #24	@ 001256fa 1821
+.org 0x1256fc
+	movs r2, #0	@ 001256fc 0022
+.org 0x1256fe
+	bl 0x10dae0	@ 001256fe e8f7eff9
+.org 0x125702
+	ldr r7, [pc, #180]	@ 00125702 2d4f
+.org 0x125704
+	adds r0, r7, #0	@ 00125704 381c
+.org 0x125706
+	movs r1, #25	@ 00125706 1921
+.org 0x125708
+	movs r2, #0	@ 00125708 0022
+.org 0x12570a
+	bl 0x10da2c	@ 0012570a e8f78ff9
+.org 0x12570e
+	ldr r1, [r4, #16]	@ 0012570e 2169
+.org 0x125710
+	movs r0, #225	@ 00125710 e120
+.org 0x125712
+	lsls r0, r0, #4	@ 00125712 0001
+.org 0x125714
+	subs r0, r0, r1	@ 00125714 401a
+.org 0x125716
+	movs r1, #60	@ 00125716 3c21
+.org 0x125718
+	bl 0x129050	@ 00125718 03f09afc
+.org 0x12571c
+	movs r5, #167	@ 0012571c a725
+.org 0x12571e
+	muls r0, r5	@ 0012571e 6843
+.org 0x125720
+	movs r1, #100	@ 00125720 6421
+.org 0x125722
+	bl 0x128fb8	@ 00125722 03f049fc
+.org 0x125726
+	movs r1, #100	@ 00125726 6421
+.org 0x125728
+	subs r1, r1, r0	@ 00125728 091a
+.org 0x12572a
+	lsls r1, r1, #24	@ 0012572a 0906
+.org 0x12572c
+	lsrs r6, r1, #24	@ 0012572c 0e0e
+.org 0x12572e
+	cmp r6, #100	@ 0012572e 642e
+.org 0x125730
+	bne.n 0x125734	@ 00125730 00d1
+.org 0x125732
+	movs r6, #0	@ 00125732 0026
+.org 0x125734
+	adds r0, r6, #0	@ 00125734 301c
+.org 0x125736
+	movs r1, #27	@ 00125736 1b21
+.org 0x125738
+	movs r2, #0	@ 00125738 0022
+.org 0x12573a
+	bl 0x10dae0	@ 0012573a e8f7d1f9
+.org 0x12573e
+	cmp r6, #9	@ 0012573e 092e
+.org 0x125740
+	bhi.n 0x12574c	@ 00125740 04d8
+.org 0x125742
+	movs r0, #0	@ 00125742 0020
+.org 0x125744
+	movs r1, #26	@ 00125744 1a21
+.org 0x125746
+	movs r2, #0	@ 00125746 0022
+.org 0x125748
+	bl 0x10dae0	@ 00125748 e8f7caf9
+.org 0x12574c
+	ldr r0, [pc, #108]	@ 0012574c 1b48
+.org 0x12574e
+	movs r1, #9	@ 0012574e 0921
+.org 0x125750
+	movs r2, #18	@ 00125750 1222
+.org 0x125752
+	bl 0x10da2c	@ 00125752 e8f76bf9
+.org 0x125756
+	ldr r0, [r4, #20]	@ 00125756 6069
+.org 0x125758
+	movs r1, #60	@ 00125758 3c21
+.org 0x12575a
+	bl 0x128fb8	@ 0012575a 03f02dfc
+.org 0x12575e
+	movs r1, #15	@ 0012575e 0f21
+.org 0x125760
+	movs r2, #18	@ 00125760 1222
+.org 0x125762
+	bl 0x10dae0	@ 00125762 e8f7bdf9
+.org 0x125766
+	adds r0, r7, #0	@ 00125766 381c
+.org 0x125768
+	movs r1, #16	@ 00125768 1021
+.org 0x12576a
+	movs r2, #18	@ 0012576a 1222
+.org 0x12576c
+	bl 0x10da2c	@ 0012576c e8f75ef9
+.org 0x125770
+	ldr r0, [r4, #20]	@ 00125770 6069
+.org 0x125772
+	movs r1, #60	@ 00125772 3c21
+.org 0x125774
+	bl 0x129050	@ 00125774 03f06cfc
+.org 0x125778
+	muls r0, r5	@ 00125778 6843
+.org 0x12577a
+	movs r1, #100	@ 0012577a 6421
+.org 0x12577c
+	bl 0x128fb8	@ 0012577c 03f01cfc
+.org 0x125780
+	lsls r0, r0, #24	@ 00125780 0006
+.org 0x125782
+	lsrs r6, r0, #24	@ 00125782 060e
+.org 0x125784
+	cmp r6, #100	@ 00125784 642e
+.org 0x125786
+	bne.n 0x12578a	@ 00125786 00d1
+.org 0x125788
+	movs r6, #0	@ 00125788 0026
+.org 0x12578a
+	adds r0, r6, #0	@ 0012578a 301c
+.org 0x12578c
+	movs r1, #18	@ 0012578c 1221
+.org 0x12578e
+	movs r2, #18	@ 0012578e 1222
+.org 0x125790
+	bl 0x10dae0	@ 00125790 e8f7a6f9
+.org 0x125794
+	cmp r6, #9	@ 00125794 092e
+.org 0x125796
+	bhi.n 0x1257a2	@ 00125796 04d8
+.org 0x125798
+	movs r0, #0	@ 00125798 0020
+.org 0x12579a
+	movs r1, #17	@ 0012579a 1121
+.org 0x12579c
+	movs r2, #18	@ 0012579c 1222
+.org 0x12579e
+	bl 0x10dae0	@ 0012579e e8f79ff9

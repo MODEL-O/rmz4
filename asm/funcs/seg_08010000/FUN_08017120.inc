@@ -1,0 +1,65 @@
+@ FUN_08017120  entry 0x08017120  size 90
+.thumb
+.org 0x17120
+FUN_08017120:
+	push {lr}	@ 00017120 00b5
+.org 0x17122
+	movs r0, #42	@ 00017122 2a20
+.org 0x17124
+	bl 0x2624	@ 00017124 ebf77efa
+.org 0x17128
+	movs r0, #43	@ 00017128 2b20
+.org 0x1712a
+	bl 0x2624	@ 0001712a ebf77bfa
+.org 0x1712e
+	movs r0, #44	@ 0001712e 2c20
+.org 0x17130
+	bl 0x2624	@ 00017130 ebf778fa
+.org 0x17134
+	movs r0, #45	@ 00017134 2d20
+.org 0x17136
+	bl 0x2624	@ 00017136 ebf775fa
+.org 0x1713a
+	movs r0, #68	@ 0001713a 4420
+.org 0x1713c
+	bl 0x2624	@ 0001713c ebf772fa
+.org 0x17140
+	movs r0, #69	@ 00017140 4520
+.org 0x17142
+	bl 0x2624	@ 00017142 ebf76ffa
+.org 0x17146
+	movs r0, #70	@ 00017146 4620
+.org 0x17148
+	bl 0x2624	@ 00017148 ebf76cfa
+.org 0x1714c
+	movs r0, #71	@ 0001714c 4720
+.org 0x1714e
+	bl 0x2624	@ 0001714e ebf769fa
+.org 0x17152
+	movs r0, #72	@ 00017152 4820
+.org 0x17154
+	bl 0x2624	@ 00017154 ebf766fa
+.org 0x17158
+	movs r0, #73	@ 00017158 4920
+.org 0x1715a
+	bl 0x2624	@ 0001715a ebf763fa
+.org 0x1715e
+	movs r0, #74	@ 0001715e 4a20
+.org 0x17160
+	bl 0x2624	@ 00017160 ebf760fa
+.org 0x17164
+	movs r0, #81	@ 00017164 5120
+.org 0x17166
+	bl 0x2624	@ 00017166 ebf75dfa
+.org 0x1716a
+	movs r0, #82	@ 0001716a 5220
+.org 0x1716c
+	bl 0x2624	@ 0001716c ebf75afa
+.org 0x17170
+	movs r0, #83	@ 00017170 5320
+.org 0x17172
+	bl 0x2624	@ 00017172 ebf757fa
+.org 0x17176
+	pop {r0}	@ 00017176 01bc
+.org 0x17178
+	bx r0	@ 00017178 0047

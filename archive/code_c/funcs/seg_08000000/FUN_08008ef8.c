@@ -1,0 +1,21 @@
+// undefined FUN_08008ef8(void)
+// entry 0x8008ef8
+
+
+undefined8 FUN_08008ef8(int param_1,int param_2)
+
+{
+  int iVar1;
+  undefined4 in_lr;
+  
+  iVar1 = param_2 + DAT_08008f0c + (param_1 >> 2);
+  if (iVar1 < 1) {
+    iVar1 = 0;
+  }
+  else {
+    iVar1 = -iVar1;
+  }
+  return CONCAT44(in_lr,iVar1);
+}
+
+

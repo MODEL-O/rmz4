@@ -1,0 +1,31 @@
+@ FUN_08123384  entry 0x08123384  size 36
+.thumb
+.org 0x123384
+FUN_08123384:
+	push {lr}	@ 00123384 00b5
+.org 0x123386
+	ldr r2, [pc, #32]	@ 00123386 084a
+.org 0x123388
+	ldrb r1, [r0, #1]	@ 00123388 4178
+.org 0x12338a
+	lsls r1, r1, #2	@ 0012338a 8900
+.org 0x12338c
+	adds r1, r1, r2	@ 0012338c 8918
+.org 0x12338e
+	ldr r1, [r1, #0]	@ 0012338e 0968
+.org 0x123390
+	bl 0x128f80	@ 00123390 05f0f6fd
+.org 0x123394
+	cmp r0, #0	@ 00123394 0028
+.org 0x123396
+	bne.n 0x1233a4	@ 00123396 05d1
+.org 0x123398
+	bl 0x6e94	@ 00123398 e3f67cfd
+.org 0x12339c
+	bl 0x2348	@ 0012339c def6d4ff
+.org 0x1233a0
+	bl 0x1354	@ 001233a0 ddf6d8ff
+.org 0x1233a4
+	pop {r0}	@ 001233a4 01bc
+.org 0x1233a6
+	bx r0	@ 001233a6 0047
